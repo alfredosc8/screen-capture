@@ -104,7 +104,13 @@ public class EditorWindow extends JFrame {
 			
 			setClipboard(String.format("http://%s:%s/?file=%s", Config.get().getIp(), Config.get().getPort(), time));
 			
-			SwingUtilities.invokeLater(() -> trayIcon.displayMessage("Clip", "captured!", MessageType.INFO));
+			SwingUtilities.invokeLater(new Runnable() {
+				
+				@Override
+				public void run() {
+					trayIcon.displayMessage("Clip", "captured!", MessageType.INFO);
+				}
+			});
 			setVisible(false);
 			dispose();
 		} catch (IOException e) {

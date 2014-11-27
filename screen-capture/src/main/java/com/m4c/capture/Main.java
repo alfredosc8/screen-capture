@@ -1,7 +1,6 @@
 package com.m4c.capture;
 
 import java.awt.AWTException;
-import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
@@ -82,7 +81,7 @@ public class Main {
 	private BufferedImage takeScreenshot() {
 		try {
 			return new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-		} catch (HeadlessException | AWTException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		
